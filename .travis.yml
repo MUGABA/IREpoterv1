@@ -1,0 +1,26 @@
+language: python
+
+python:
+
+  - "3.6"
+
+install:
+    - pip install -r requirements.txt
+    - pip install pytest 
+    - pip install pytest-cov
+    - pip install coveralls
+    
+
+
+script:
+  - pytest
+  - pytest --cov=./
+  #- py.test test_endpoints.py --cov=.
+
+branches:
+  only:
+  - master
+
+after-success:
+- coveralls
+- coverage report
