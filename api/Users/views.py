@@ -3,11 +3,13 @@ from . validators import create_new_user,getall_users,sign_in_user,homepage
 
 
 userblueprint = Blueprint('api',__name__)
-@userblueprint.route('/')
+
+
+@userblueprint.route('/', methods = ['GET'])
 def index():
 	return homepage()
 
-@userblueprint.route('/users', methods = ['POST'] )
+@userblueprint.route('/signUp', methods = ['POST'] )
 def create_user():
 	return create_new_user()
 
